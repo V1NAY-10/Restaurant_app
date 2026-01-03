@@ -1,10 +1,12 @@
-﻿# Restaurant_app
-
-RESTARAUNT_APPLICATION/
+RESTRAUNT_APPLICATION/
+│
 ├── backend/
+│   │
 │   ├── src/
+│   │   │
 │   │   ├── config/
 │   │   │   └── db.js
+│   │   │
 │   │   └── app.js
 │   │
 │   ├── .env              ❌ gitignored
@@ -14,5 +16,3 @@ RESTARAUNT_APPLICATION/
 │
 ├── .gitignore
 └── README.md
-
-
