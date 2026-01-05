@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const generateToken = require("../utils/generateToken");
 const User = require("../models/User");
+const isValidPassword = require("../utils/passwordChecker");
 
 // REGISTER
 exports.registerUser = async (req, res) => {
@@ -9,6 +10,10 @@ exports.registerUser = async (req, res) => {
 
     if (!name || !email || !password) {
       return res.status(400).json({ msg: "All fields are required" });
+    }
+
+    if (!isValidPassword(password)) {
+      return res.status(400).json({ msg: "Invalid Password" });
     }
 
     const existingUser = await User.findOne({ email });
