@@ -22,4 +22,13 @@ app.get("/test", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 
+const { protect } = require("./middleware/authMiddleware");
+
+app.get("/api/test/protected", protect, (req, res) => {
+  res.json({
+    msg: "Protected route working",
+    user: req.user,
+  });
+});
+
 module.exports = app;
